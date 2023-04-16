@@ -10,7 +10,7 @@ git clone https://git@github.com:Kirill-Bovin/api_final_yatube.git
 ```
 Перейти в репозиторий с проектом:
 ```
-cd kittygram_backend
+cd yatube_api
 ```
 
 Cоздать и активировать виртуальное окружение:
