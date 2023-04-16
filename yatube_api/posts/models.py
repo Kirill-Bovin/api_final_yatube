@@ -1,5 +1,4 @@
 from django.contrib.auth import get_user_model
-from django.core.exceptions import ValidationError
 from django.db import models
 
 User = get_user_model()
@@ -93,10 +92,3 @@ class Follow(models.Model):
                 fields=["user", "following"], name="unique_follow"
             )
         ]
-
-    def clean(self, *args, **kwargs):
-        if self.user == self.author:
-            raise ValidationError(
-                'Ошибка: пользователь не может подписаться на самого себя!'
-            )
-        super().clean(*args, **kwargs)

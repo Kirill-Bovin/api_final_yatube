@@ -4,19 +4,6 @@ from rest_framework.validators import UniqueTogetherValidator
 from posts.models import Comment, Follow, Group, Post, User
 
 
-class UserSerializer(serializers.ModelSerializer):
-    """Сериализатор пользователей."""
-    posts = serializers.SlugRelatedField(
-        many=True,
-        read_only=True,
-        slug_field='posts'
-    )
-
-    class Meta:
-        model = User
-        fields = ('id', 'username', 'posts')
-
-
 class PostSerializer(serializers.ModelSerializer):
     """Сериализатор постов."""
     author = serializers.SlugRelatedField(
@@ -72,7 +59,7 @@ class FollowSerializer(serializers.ModelSerializer):
         ]
 
     def validate(self, data):
-        if self.context['request'].user == data.get('following'):
+        if self.context['request'].user == data['following']:
             raise serializers.ValidationError(
                 'Подписка на сомого себя запрещена'
             )
