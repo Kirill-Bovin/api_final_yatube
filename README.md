@@ -10,7 +10,7 @@ git clone https://git@github.com:Kirill-Bovin/api_final_yatube.git
 ```
 Перейти в репозиторий с проектом:
 ```
-cd yatube_api
+cd api_final_yatube
 ```
 
 Cоздать и активировать виртуальное окружение:
@@ -24,6 +24,10 @@ source env/scripts/activate
 ```
 python -m pip install --upgrade pip
 pip install -r requirements.txt
+```
+Перейти в репозиторий yatube:
+```
+cd yatube_api
 ```
 Выполнить миграции:
 ```
